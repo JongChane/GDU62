@@ -454,5 +454,35 @@ public class BoardController extends MskimRequestMapping {
 		request.setAttribute("url", url);
 		return "alert";				
 	}
-		 	
+
+	// 추천 ======================================================================
+	@RequestMapping("recommend")
+	public String recommend(HttpServletRequest request, HttpServletResponse response) {
+		int num = Integer.parseInt(request.getParameter("num"));
+		String id = request.getParameter("id");
+		String login = (String) request.getSession().getAttribute("login");
+
+		if (login == null) {
+			request.setAttribute("msg", "로그인하세요");
+			request.setAttribute("url", "member/loginForm");
+			return "alert";
+		}
+		int result = rdao.insert(id, num);
+		if (result == 1) {
+			result = dao.like(num);
+			if (result == 1) {
+			request.setAttribute("msg", "추천완료!");
+			request.setAttribute("url", "info?num=" + num + "&readcnt=f");
+			return "alert";
+		} else {
+			request.setAttribute("msg", "데이터베이스 오류");
+			request.setAttribute("url", "info?num=" + num + "&readcnt=f");
+			return "alert";
+		}
+	} else {
+		request.setAttribute("msg", "이미 추천을 누른 게시글입니다.");
+		request.setAttribute("url", "info?num=" + num + "&readcnt=f");
+		return "alert";
+	}
+	}
 }

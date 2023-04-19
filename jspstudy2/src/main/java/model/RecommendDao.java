@@ -2,11 +2,10 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RecommendDao {
-	public int recommend (String id, int num) {
+	public int insert(String id, int num) {
 		Connection conn = DBConnection.getConnection();
 		PreparedStatement pstmt = null;
 		try {
@@ -21,5 +20,5 @@ public class RecommendDao {
 		}
 		return -1;
 	}
-	
+
 }

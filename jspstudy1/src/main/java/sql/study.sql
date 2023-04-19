@@ -46,13 +46,15 @@ regdate DATETIME,
 PRIMARY KEY(num,seq) -- 중복키 설정
 );
 
+drop table recommend
 create table recommend (
 num INT(10) REFERENCES board(num),
 id varchar(20) REFERENCES member(id),
 primary key(num,id)
 );
 
-select * from comment
+alter table board add recommendcnt int default '0';
+select * from board
 
 SELECT * ,
 (SELECT COUNT(*) FROM COMMENT c WHERE c.num = b.num) commcnt

@@ -31,10 +31,15 @@
 							${b.content}
 						</td>
 					</tr>
+					<tr>
+							<td style="text-align:left">추천수:${b.recommendcnt}</td>
+						</tr>
 				</table>
 			</td> 
 		</tr>
-
+	<tr>
+<a href="recommend?num=${b.num}">👍</a>
+	</tr>
 		<tr>
 			<th>첨부파일</th>
 			<td>

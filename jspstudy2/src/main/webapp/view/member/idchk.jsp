@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%-- /jspstudy2/src/main/webapp/view/member/idchk.jsp
-		1. 
-
---%>  
+--%>
 <!DOCTYPE html>
 <html>
 <head>

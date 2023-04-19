@@ -225,4 +225,19 @@ public class BoardDao {
 		return false;
 	}
 
+	public int like(int num) {
+		Connection conn = DBConnection.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement("update board set recommendcnt = recommendcnt + 1 where num = ?");
+			pstmt.setInt(1, num);
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(conn, pstmt, null);
+		}
+		return -1;
+	}
+
 }
