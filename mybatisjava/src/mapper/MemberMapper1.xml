@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /mybatisjava/src/mapper/MemberMapper1.xml -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "member">
+	<select id="count" resultType="int">
+		select count(*)from member
+	</select>
+	<select id="list" resultType="Member">
+		select * from member
+	</select>
+	<select id="selectid" resultType="Member" parameterType="string">
+		select * from member where id = #{value}
+	</select>
+	<!-- 
+	#{value} : value의 자료형이 문자열 형이면 '값'으로 처리함.
+						 value의 자료형이 숫자면 값으로 처리함.
+		파라미터 : "%페페%" => name like '%페페%'
+	
+	${value} : 값만 치환. 문자인 경우 코딩에서 '' 표시해야함.
+		파라미터 : "페페" => name like '%페페%'						 
+	 -->
+	<select id="selectname" resultType="Member" parameterType="string">
+		select * from member where name like #{value}
+	</select>
+	<select id="selectname2" resultType="Member" parameterType="string">
+		select * from member where name like '%${value}%'
+	</select>
+	<!-- map 객체 파라미터
+			#{map 객체의 key} => map 객체의 value 값으로 치환 
+	 -->
+	<select id="selectnamegender" resultType="Member" parameterType="map">
+		select * from member where name like '%${name}%' and gender = #{gender}
+	</select>
+</mapper>
