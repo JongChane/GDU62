@@ -16,7 +16,14 @@ public class Board {
  private int grplevel;
  private int grpstep;
  private int commcnt;
+ private int recommendcnt;
  
+public int getRecommendcnt() {
+	return recommendcnt;
+}
+public void setRecommendcnt(int recommendcnt) {
+	this.recommendcnt = recommendcnt;
+}
 public int getCommcnt() {
 	return commcnt;
 }
@@ -99,8 +106,8 @@ public void setGrpstep(int grpstep) {
 public String toString() {
 	return "Board [num=" + num + ", writer=" + writer + ", pass=" + pass + ", title=" + title + ", content=" + content
 			+ ", file1=" + file1 + ", boardid=" + boardid + ", regdate=" + regdate + ", readcnt=" + readcnt + ", grp="
-			+ grp + ", grplevel=" + grplevel + ", grpstep=" + grpstep + "]";
+			+ grp + ", grplevel=" + grplevel + ", grpstep=" + grpstep + ", commcnt=" + commcnt + ", recommendcnt="
+			+ recommendcnt + "]";
 }
- 
  
 }

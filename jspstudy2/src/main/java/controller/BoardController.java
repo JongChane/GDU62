@@ -19,6 +19,7 @@ import model.Board;
 import model.BoardDao;
 import model.Comment;
 import model.CommentDao;
+import model.RecommendDao;
 
 // http://localhost:8080/jspstudy2/board/writeForm
 @WebServlet(urlPatterns= {"/board/*"},
@@ -26,6 +27,7 @@ initParams= {@WebInitParam(name="view",value="/view/")})
 public class BoardController extends MskimRequestMapping {
 	private BoardDao dao = new BoardDao();
 	private CommentDao cdao = new CommentDao();
+	private RecommendDao rdao = new RecommendDao();
 	@RequestMapping("writeForm")
 	public String writeForm(HttpServletRequest request, HttpServletResponse response) {
 		String boardid = (String)request.getSession().getAttribute("boardid");
