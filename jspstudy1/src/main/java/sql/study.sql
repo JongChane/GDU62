@@ -46,7 +46,7 @@ regdate DATETIME,
 PRIMARY KEY(num,seq) -- 중복키 설정
 );
 
-create table recommend (
+create table recommtend (
 num INT(10) REFERENCES board(num),
 id varchar(20) REFERENCES member(id),
 primary key(num,id)

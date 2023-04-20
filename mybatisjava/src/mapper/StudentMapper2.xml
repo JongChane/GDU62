@@ -36,6 +36,7 @@
 			where height >= #{height}</when>
 	   </choose>
 	</select>
+	
 	<select id="select3" resultType="Student" parameterType="map">
 			select * from student
 		<trim prefix="where" prefixOverrides="AND || OR">
